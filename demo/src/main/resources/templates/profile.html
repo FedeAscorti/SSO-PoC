@@ -1,17 +1,117 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #f8f9fa, #e3f2fd);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .advantages, .disadvantages, .why-auth0 {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
-<h1>Perfil de usuario</h1>
-<div>
-  <p><strong>Nombre:</strong> <span th:text="${name}"></span></p>
-  <p><strong>Email:</strong> <span th:text="${email}"></span></p>
-  <img th:src="${picture}" alt="User Picture" />
-</div>
-<a href="/logout">Logout</a>
+<header>
+    Prueba de Concepto - SSO
+</header>
+
+<main class="content container">
+    <h1 class="text-center">Perfil de Usuario</h1>
+    <div class="text-center my-4">
+        <p><strong>Nombre:</strong> <span th:text="${name}">John Doe</span></p>
+        <p><strong>Email:</strong> <span th:text="${email}">john.doe@example.com</span></p>
+        <img th:src="${picture}" src="https://via.placeholder.com/150" alt="User Picture" class="rounded-circle">
+    </div>
+    <div class="text-center">
+        <a href="/logout" class="btn btn-custom">Logout</a>
+    </div>
+
+    <section class="advantages mt-5">
+        <h2>Ventajas de usar SSO (Single Sign-On):</h2>
+        <ul>
+            <li><strong>Experiencia de usuario mejorada:</strong> Los usuarios solo necesitan autenticarse una vez para acceder a múltiples aplicaciones.</li>
+            <li><strong>Gestión centralizada de usuarios:</strong> Permite gestionar todas las credenciales y accesos desde un único punto.</li>
+            <li><strong>Mayor seguridad:</strong> Puedes implementar mejores prácticas de seguridad como MFA y detección de anomalías.</li>
+            <li><strong>Reducción de contraseñas olvidadas:</strong> Menos solicitudes de restablecimiento de contraseñas.</li>
+            <li><strong>Facilidad de integración:</strong> Herramientas como Auth0 facilitan la integración con múltiples lenguajes y frameworks.</li>
+            <li><strong>Soporte para múltiples protocolos:</strong> Auth0 soporta estándares como OAuth 2.0, OpenID Connect y SAML.</li>
+        </ul>
+    </section>
+
+    <section class="disadvantages mt-5">
+        <h2>Desventajas de usar SSO:</h2>
+        <ul>
+            <li><strong>Punto único de fallo:</strong> Si el SSO falla, el acceso a todas las aplicaciones vinculadas también se verá afectado.</li>
+            <li><strong>Dependencia de terceros:</strong> Confiar en una plataforma externa puede ser problemático si hay problemas de disponibilidad.</li>
+            <li><strong>Costo:</strong> Los planes gratuitos de herramientas como Auth0 tienen limitaciones y pueden ser costosos a largo plazo.</li>
+            <li><strong>Curva de aprendizaje:</strong> Integrar un SSO en sistemas complejos puede requerir experiencia técnica.</li>
+            <li><strong>Posibles problemas de integración:</strong> Aplicaciones antiguas o no estándar pueden dificultar la integración.</li>
+        </ul>
+    </section>
+
+    <section class="why-auth0 mt-5">
+        <h2>Por qué es conveniente utilizar Auth0 con Spring Boot</h2>
+        <ul>
+            <li><strong>Compatibilidad y facilidad de integración:</strong> Auth0 tiene bibliotecas específicas para Java y guías detalladas para Spring Boot.</li>
+            <li><strong>Seguridad mejorada:</strong> Ofrece características avanzadas como autenticación multifactor y detección de brechas de seguridad.</li>
+            <li><strong>Escalabilidad:</strong> Maneja la autenticación para grandes volúmenes de usuarios.</li>
+            <li><strong>Soporte para APIs RESTful:</strong> Simplifica la autenticación y autorización de las APIs desarrolladas con Spring Boot.</li>
+            <li><strong>Menor tiempo de desarrollo:</strong> Delegar la autenticación reduce los tiempos de desarrollo y posibles errores.</li>
+            <li><strong>Flexibilidad de autenticación:</strong> Ofrece múltiples métodos de autenticación, mejorando la experiencia del usuario.</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    Trabajo Práctico Anual - Grupo 19 Martes Mañana
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
